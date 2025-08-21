@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <title>
+        {% block title %}        
+        {% endblock %}
+        | Santiago Romero
+    </title>
+    <link rel = "stylesheet" type = "text/css" href = "{% static 'css/styles.css' %}"/>
+</head>
+
+<body>
+    <!-- Cabecera de la página -->
+     <header>
+        <div id = "logotipo">
+            <!-- Logo -->
+             <img src = "{% static 'imagenes/logo.png' %}"/>
+             <h1>Proyecto con Django</h1>
+        </div>        
+     </header>
+
+     <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="{% url 'index' %}">Inicio</a></li>
+            <li><a href="{% url 'about' %}">Acerca de nosotros</a></li>
+        </ul>
+    </nav>
+    <div class = "bar">
+        <span class = "left-corner"></span>
+        <span class = "stuffed"></span>
+        <span class = "right-corner"></span>
+    </div>
+
+    <!--  Content  -->
+    <div id = "content">
+        <div class = "box">               
+            {% block content %}            
+                <!-- Código que viene de Templates -->
+            <strong>Bloque de contenido original</strong>
+            {% endblock %}
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        Master en Python &copy; Santiago Romero - {% now "Y" %}
+    </footer>
+
+</body>
+
+</html>
