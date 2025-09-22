@@ -23,7 +23,7 @@ class Article(models.Model):
     image = models.ImageField(default='null', null=True, blank=True, verbose_name="Imagen", upload_to="articles/")
     public = models.BooleanField(default=False, verbose_name="Público")
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Usuario", editable=False)
-    categories = models.ManyToManyField(Category, verbose_name="Categorías", blank=True)
+    categories = models.ManyToManyField(Category, verbose_name="Categorías", blank=True, related_name="articles")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Creado el")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Actualizado el")
 
