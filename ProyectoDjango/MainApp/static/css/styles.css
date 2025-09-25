@@ -159,7 +159,7 @@ nav > ul > li:hover > ul > li:hover a {
     padding: 20px;
     border: 1px solid #ddd;
     margin: 0 auto;
-    border-radius: 2px;
+    border-radius: 2px;        
 }
 
 .box p, .box h1, .box h2, .box h3, .box ul{
@@ -175,6 +175,36 @@ nav > ul > li:hover > ul > li:hover a {
 .clearfix {
     clear: both;
     float: none;
+}
+
+.box .image-category {
+    float: left;
+    width: 25%;
+    margin-right: 15px;    
+}
+
+.box .image-category img {    
+    width: 100%;
+}
+
+.box .image {
+    float: left;
+    width: 45%;
+    margin-right: 40px;  
+}
+
+.box .image img {    
+    width: 100%;    
+}
+
+.box a {
+    color: #444;
+    transition: 300ms all;
+}
+
+.box a:hover {
+    color: #1f7e58;
+    text-decoration: none;    
 }
 
 .box form{
@@ -239,28 +269,30 @@ nav > ul > li:hover > ul > li:hover a {
 }
 
 .article-item{
+    display: flex;
+    align-items: flex-start;
     margin-bottom: 20px;
     margin-top: 20px;
     border-bottom: 3px solid #eee;
     padding: 50px;
-    clear: both;
+    clear: both;    
 }
 
 .article-item .image {
-    width: 200px;
-    height: 200px;    
+    width: 150px;
+    height: 150px;
     float: left;
-    overflow: hidden;
-    margin-right: 20px;
+    overflow: hidden;    
 }
 
 .article-item .image img {    
+    width: 200px;
     height: 200px;
 }
 
 .article-item .data {
     float: left;
-    padding: 15px;
+    padding: 5px;
     padding-top: 0px;
     width: calc(100% - 250px);
     box-sizing: border-box;

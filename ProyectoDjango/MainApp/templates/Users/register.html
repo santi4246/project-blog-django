@@ -1,0 +1,24 @@
+{% extends 'Layouts/layout.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}    
+    <h1>{{ title }}</h1>
+    {{  register_form.errors }}
+    {% comment %}
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{ register_form.as_p }}
+            <button type="submit">Registrarse</button>
+        </form>
+    {% endcomment %}
+    <form method="POST" action="">
+        {% csrf_token %}
+        {% comment %}
+            {{ register_form.as_p }}
+        {% endcomment %}
+        {% for field in register_form %}
+            {{ field.label_tag }} {{ field }}
+        {% endfor %}
+        <button type="submit">Registrarse</button>
+{% endblock %}
