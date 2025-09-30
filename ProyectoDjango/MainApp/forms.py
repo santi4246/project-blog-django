@@ -3,10 +3,7 @@ from django.core import validators
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-class RegisterForm(UserCreationForm):
-    email = forms.EmailField(label="Correo electrónico")
-    first_name = forms.CharField(label="Nombre", max_length=100)
-    last_name = forms.CharField(label="Apellido", max_length=100)
+class RegisterForm(UserCreationForm):    
 
     class Meta:
         model = User

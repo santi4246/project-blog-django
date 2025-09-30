@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Category, Article
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required(login_url='/login/')
 def list(request):
     # Sacar artículos
     articles = Article.objects.all().order_by('-created_at')
@@ -16,6 +18,7 @@ def list(request):
         'articles': page_articles
     })
 
+@login_required(login_url='/login/')
 def category(request, category_id):
     category = get_object_or_404(Category, pk=category_id)
     # articles = Article.objects.filter(categories=category).order_by('-created_at')
@@ -24,6 +27,7 @@ def category(request, category_id):
         'category': category,        
     })
 
+@login_required(login_url='/login/')
 def article(request, article_id):
     article = get_object_or_404(Article, pk=article_id)
     return render(request, 'articles/detalle.html', {

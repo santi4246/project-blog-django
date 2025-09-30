@@ -1,0 +1,22 @@
+{% extends 'Layouts/layout.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}    
+    <h1>{{ title }}</h1>
+    {{  register_form.errors }}    
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert-warning">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <form method="POST" action="">
+        {% csrf_token %}        
+        <label for="username">Usuario: </label>
+        <input type="text" name="username"></input>
+        <label for="password">Contraseña: </label>
+        <input type="password" name="password"></input>
+        <button type="submit" value="Login">Registrarse</button>
+{% endblock %}
