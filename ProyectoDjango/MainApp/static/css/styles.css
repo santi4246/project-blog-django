@@ -156,10 +156,10 @@ nav > ul > li:hover > ul > li:hover a {
     background: white;
     width: 95%;
     min-height: 930px;
-    padding: 20px;
+    padding: 20px 0;
     border: 1px solid #ddd;
     margin: 0 auto;
-    border-radius: 2px;        
+    border-radius: 2px;
 }
 
 .box p, .box h1, .box h2, .box h3, .box ul{
@@ -268,12 +268,20 @@ nav > ul > li:hover > ul > li:hover a {
     background: #1f7e58;    
 }
 
-.title{
+.title {
     color: #444;
     letter-spacing: 1px;
     font-size: 30px;
-    margin-bottom: 10px;
-    margin-top: 5px;
+    margin: 5px 0 10px 50px;
+    display: block;            
+}
+
+.subtitle {
+    color: #444;
+    letter-spacing: 0.5px;
+    font-size: 20px;
+    margin: 5px 0 10px 50px;
+    display: block;
 }
 
 .date{
@@ -310,11 +318,8 @@ nav > ul > li:hover > ul > li:hover a {
 }
 
 .article-item .data {
-    float: left;
-    padding: 5px;
-    padding-top: 0px;
-    width: calc(100% - 250px);
-    box-sizing: border-box;
+    flex: 1 1 0;
+    min-width: 0;
 }
 
 .article-item h2 {
@@ -329,6 +334,43 @@ nav > ul > li:hover > ul > li:hover a {
     font-size: 15px;
     color: gray;
     margin-bottom: 10px;
+}
+
+.article-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    justify-content: center;
+    padding: 40px 0px;
+    width: 100%;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px #eee;
+    margin-bottom: 40px;    
+}
+
+.article-detail .image {
+    flex: 0 0 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+}
+
+.article-detail .image img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px #ddd;    
+}
+
+.article-detail .text-detail {
+    flex: 1 1 0;
+    min-width: 0;    
+    line-height: 20px;
+    text-align: justify;
+    padding: 0 40px 0 0;
 }
 
 .btn {

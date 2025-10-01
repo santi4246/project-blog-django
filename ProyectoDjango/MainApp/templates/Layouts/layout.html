@@ -31,11 +31,11 @@
                 <li>
                     <a href="{% url 'list_articles' %}">Categorías</a>
                     <ul>                    
-                        {% for category in categories %}
-                            <li><a href="{% url 'category' category.0 %}">{{ category.1 }}</a></li>
+                        {% for category in categories %}           
+                            <li><a href="{% url 'category' category.id %}">{{ category.name }}</a></li>                            
                         {% endfor %}
                     </ul>
-                </li>                
+                </li>
                 {% for page in pages %}
                     <li><a href="{% url 'pagina' page.2 %}">{{ page.1 }}</a></li>
                 {% endfor %}

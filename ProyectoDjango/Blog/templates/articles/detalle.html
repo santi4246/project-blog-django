@@ -3,16 +3,18 @@
 {% block title %} {{ title }} {% endblock %}
 
 {% block content %}
-    {% if article.image != 'null' and article.image.url|length >= 1 %}
-
-                <div class="image">
-                    <img src="{{article.image.url}}"></img>
-                </div>
-
-    {% endif %}
-    <h1 class="title">{{ title }}</h1>
-    <span class="date">{{ article.created_at }}</span>
-    <p class="content">
-        {{ article.content|safe }}
-    </p>
+    <div class="article-detail">
+        {% if article.image != 'null' and article.image.url|length >= 1 %}
+        <div class="image">
+            <img src="{{article.image.url}}"></img>
+        </div>
+        {% endif %}
+            <div class="text-detail">
+                <h1 class="title">{{ title }}</h1>
+                <span class="date">{{ article.created_at }}</span>
+                <p class="content">
+                    {{ article.content|safe }}
+                </p>
+            </div>
+    </div>
 {% endblock %}

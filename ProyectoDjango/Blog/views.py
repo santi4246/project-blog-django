@@ -13,18 +13,20 @@ def list(request):
     # Recoger número de página
     page = request.GET.get('page')
     page_articles = paginator.get_page(page)
+    categories = Category.objects.filter(articles__public=True).distinct()
     return render(request, 'articles/list.html', {
         'title': 'Artículos',
-        'articles': page_articles
+        'articles': page_articles,
+        'categories': categories,
     })
 
 @login_required(login_url='/login/')
-def category(request, category_id):
+def category(request, category_id):    
     category = get_object_or_404(Category, pk=category_id)
     # articles = Article.objects.filter(categories=category).order_by('-created_at')
     return render(request, 'categories/category.html', {
         'title': 'Categoría',        
-        'category': category,        
+        'category': category,
     })
 
 @login_required(login_url='/login/')
