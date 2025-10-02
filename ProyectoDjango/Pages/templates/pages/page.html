@@ -5,7 +5,9 @@
 {% block content %}
     <h1 class="title">{{ page.title }}</h1>
     <span class="date">{{ page.created_at }}</span>
-    <p class="content">
-        {{ page.content|safe }}
-    </p>
+    <div class="content">
+        <p>
+            {{ page.content|safe }}
+        </p>
+    </div>
 {% endblock %}

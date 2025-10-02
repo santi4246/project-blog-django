@@ -11,21 +11,28 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from pathlib import Path
+import environ
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+env = environ.Env(
+    DEBUG=(bool, False),
+    DB_CONN_MAX_AGE=(int, 0),
+)
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '-s*yiyht57unbn6$&+efe$uh5)n5s*5l=vuvq9p7=3p=+d45bm'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+DEBUG = env('DEBUG')
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 
 # Application definition
@@ -86,6 +93,7 @@ DATABASES = {
     }
 }
 """
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -96,7 +104,32 @@ DATABASES = {
         'PORT': 3306,
     }
 }
-
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': env("DB_ENGINE"),
+        'NAME': env("DB_NAME"),
+        'USER': env("DB_USER"),
+        'PASSWORD': env("DB_PASSWORD"),
+        'HOST': env("DB_HOST"),
+        'PORT': env("DB_PORT"),
+        # Opciones extras para SSL
+        'OPTIONS': {
+            'ssl': {
+                'ca': env("DB_SSL_CA"),
+            },
+            # si Aiven pide otros parámetros SSL, los agregás aquí
+        },
+    }
+}
+# Optimizar conexiones a la base de datos
+DATABASES['default']['CONN_MAX_AGE'] = env('DB_CONN_MAX_AGE')
+# Si usas Aiven MySQL, añade las opciones SSL
+"""
+DATABASES['default']['OPTIONS'] = {
+    'ssl': {'ssl_ca': '/certs/ca.pem'},  # si Aiven exige certificado SSL, bajalo del panel
+}
+"""
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -138,3 +171,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'MainApp', 'static'),
+]
+
+# MEDIA_ROOT = BASE_DIR / 'media'

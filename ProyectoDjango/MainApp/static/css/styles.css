@@ -144,12 +144,13 @@ nav > ul > li:hover > ul > li:hover a {
 }
 
 /* Estilos contenido central */
-#content{
+#content {
     width: 1212px;
     min-height: 930px;
     margin: 0 auto;
     margin-bottom: 30px;
-    margin-top: 40px;
+    margin-top: 40px;    
+    display: flex;
 }
 
 .box{
@@ -162,9 +163,8 @@ nav > ul > li:hover > ul > li:hover a {
     border-radius: 2px;
 }
 
-.box p, .box h1, .box h2, .box h3, .box ul{
-    margin-top: 5px;
-    margin-bottom: 5px;
+.box h1, .box h2, .box h3, .box ul, .date {
+    margin: 5px 0 5px 40px;
 }
 
 .box ul, .box ol{
@@ -292,7 +292,13 @@ nav > ul > li:hover > ul > li:hover a {
 }
 
 .content {
-    line-height: 15px;
+    text-align: justify;
+    margin-bottom: 15px;
+    line-height: 16px;
+    font-size: 12px;
+    margin: 0 45px 0 0;
+    font-weight: normal;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .article-item{
@@ -319,7 +325,7 @@ nav > ul > li:hover > ul > li:hover a {
 
 .article-item .data {
     flex: 1 1 0;
-    min-width: 0;
+    min-width: 0;    
 }
 
 .article-item h2 {
