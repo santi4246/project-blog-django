@@ -5,3 +5,5 @@ django-environ
 whitenoise
 django-ckeditor
 Pillow>=9.0.0
+boto3
+django-storages
