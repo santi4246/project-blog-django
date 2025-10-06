@@ -65,7 +65,8 @@ Configurar las siguientes variables antes de ejecutar el deploy:
 📄 Si el bucket es público:
 ```python
 AWS_QUERYSTRING_AUTH = False
-
+```
+```python
 🔒 4. Seguridad en Producción
 
 Activar las siguientes configuraciones en settings.py:
@@ -85,3 +86,4 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 * Ejecutar python manage.py collectstatic antes del deploy.
 * Usar DEBUG=False siempre en producción.
 * Monitorear logs y conexiones desde el dashboard del proveedor (Render, AWS, etc).
+```
