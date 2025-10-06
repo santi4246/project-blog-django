@@ -163,7 +163,7 @@ nav > ul > li:hover > ul > li:hover a {
     border-radius: 2px;
 }
 
-.box h1, .box h2, .box h3, .box ul, .date {
+.box h1, .box h2, .box h3, .box ul, .date, p {
     margin: 5px 0 5px 40px;
 }
 
@@ -208,7 +208,8 @@ nav > ul > li:hover > ul > li:hover a {
 }
 
 .box form{
-    width: 40%;
+    width: 30%;
+    margin: 5px 0 5px 40px;
 }
 
 .box form input,
