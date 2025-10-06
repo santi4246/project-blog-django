@@ -66,9 +66,9 @@ Configurar las siguientes variables antes de ejecutar el deploy:
 ```python
 AWS_QUERYSTRING_AUTH = False
 ```
-```python
-🔒 4. Seguridad en Producción
 
+## 🔒 4. Seguridad en Producción
+```python
 Activar las siguientes configuraciones en settings.py:
 HTTPS y cookies seguras
 SECURE_SSL_REDIRECT = True
